@@ -461,12 +461,11 @@ Suggestions, improvements, and feedback are welcome.
 For questions, feedback, or improvements, feel free to open an issue or start a discussion.
 
 ---
+## 📬 Get in Touch
 
-
-## 📬 Get in touch
-
-[![Email](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:singhalsahil22@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sahil-singhal-2b507823b/)
+- 📧 Email: [singhalsahil22@gmail.com](mailto:singhalsahil22@gmail.com)
+- 💼 LinkedIn: [Sahil Singhal](https://www.linkedin.com/in/sahil-singhal-2b507823b/)
+- 💻 GitHub: [0SAHILl](https://github.com/0SAHILl)
 ---
 
 ## 🏆 Credits
