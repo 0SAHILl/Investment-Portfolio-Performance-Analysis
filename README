@@ -1,0 +1,80 @@
+# 📊 Investment Portfolio Performance Analysis
+
+An interactive **Power BI portfolio analysis dashboard** designed to evaluate investment performance, stock returns, profitability, portfolio value, and company-wise financial insights.
+
+## 🎯 Project Objective
+
+The objective of this project is to transform portfolio data into meaningful visual insights that help evaluate investment performance and identify the strongest and weakest contributors within the portfolio.
+
+The dashboard focuses on:
+
+- Overall portfolio performance
+- Investment vs. current value
+- Company-wise returns
+- Profit contribution
+- Top-performing stock
+- Investment and return relationships
+- Interactive company and sector analysis
+
+## 📊 Dashboard Preview
+
+### Portfolio Overview
+
+![Portfolio Overview](PAGE%201.png)
+
+The overview dashboard presents key portfolio KPIs including:
+
+- **Amount Invested:** ₹9,99,976.72
+- **Current Value:** ₹10,23,542.98
+- **Companies:** 7
+- **Portfolio Return:** 2.36%
+
+It also highlights company-wise returns, the top-performing stock, and profit contribution.
+
+### Portfolio Performance Insights
+
+![Portfolio Performance Insights](PAGE%202.png)
+
+The insights page provides deeper analysis through:
+
+- Investment vs. Current Value by Company
+- Investment vs. Return analysis
+- Company filter
+- Sector filter
+- Interactive portfolio exploration
+
+## 🔍 Key Insights
+
+- **Siemens** is the top-performing stock with a **7.12% return**.
+- The portfolio generated an overall return of **2.36%**.
+- The portfolio contains investments across **7 companies**.
+- Investment and current value comparisons help identify portfolio appreciation.
+- Company-wise profit contribution highlights the major contributors to overall portfolio profit.
+
+## 🛠️ Tools & Technologies
+
+- **Microsoft Power BI**
+- **Microsoft Excel**
+- **DAX**
+- **Data Visualization**
+- **Business Analytics**
+
+## 📁 Project Structure
+
+```text
+Investment-Portfolio-Performance-Analysis/
+│
+├── 📁 DASHBOARD IMAGES
+│   ├── PAGE 1.png
+│   └── PAGE 2.png
+│
+├── 📁 DATASET
+│   └── DATASET OF PORTFOLIO.xlsx
+│
+├── 📁 POWER BI REPORT
+│   └── PORTFOLIO DASHBOARD.pbix
+│
+├── 📁 PROJECT PRESENTATION
+│   └── PORTFOLIO PROJECT.pptx
+│
+└── README.md
