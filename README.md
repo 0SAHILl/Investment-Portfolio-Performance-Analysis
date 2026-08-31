@@ -14,7 +14,7 @@ The dashboard combines financial analysis with interactive data visualization to
 
 ## 🎯 Project Objective
 
-The primary objective of this project is to evaluate the performance of an investment portfolio using interactive Power BI dashboards.
+The primary objective of this project is to evaluate the performance of an investment portfolio using an interactive Power BI dashboard.
 
 The analysis focuses on:
 
@@ -47,41 +47,24 @@ The project demonstrates how financial data can be transformed into an interacti
 
 ## 📊 Dashboard
 
-The Power BI report contains two dashboard pages designed to provide both a high-level portfolio overview and detailed performance analysis.
+The project contains a **single-page interactive Power BI dashboard** designed to provide a comprehensive overview of portfolio performance.
 
-### 🏠 Page 1 — Portfolio Overview
+### 📈 Portfolio Performance Dashboard
 
-The first dashboard provides a high-level summary of the investment portfolio.
-
-![Portfolio Overview](DASHBOARD%20IMAGES/PAGE%201.png)
+![Portfolio Performance Dashboard](DASHBOARD%20IMAGES/DASH.png)
 
 The dashboard provides insights into:
 
 - 💰 Total Amount Invested
 - 💵 Current Portfolio Value
-- 📈 Overall Portfolio Return
-- 🏢 Company-wise Performance
+- 📈 Portfolio Return
 - 🏆 Top Performing Company
-- 💹 Net Profit / Gain or Loss
-- 📊 Portfolio Performance
-
----
-
-### 📈 Page 2 — Portfolio Performance Analysis
-
-The second dashboard provides deeper analysis of individual investments and company-level performance.
-
-![Portfolio Performance Analysis](DASHBOARD%20IMAGES/PAGE%202.png)
-
-The analysis focuses on:
-
-- Investment vs. Current Value
-- Investment vs. Return
-- Company-wise Returns
-- Profitability Analysis
-- Company Performance
-- Interactive Portfolio Analysis
-- Comparative Investment Performance
+- 💹 Net Profit
+- 📊 Company-wise Return
+- 🍩 Profit Contribution by Company
+- 📈 Investment vs. Current Value
+- 📊 Investment vs. Return
+- 🔍 Company and Sector filtering
 
 ---
 
@@ -102,7 +85,7 @@ The analysis focuses on:
 - 🧮 DAX-based financial calculations
 - 📑 Excel-based portfolio dataset
 - 📋 Project presentation included
-- 🖼️ Dashboard screenshots included
+- 🖼️ Dashboard screenshot included
 
 ---
 
@@ -113,7 +96,7 @@ The analysis focuses on:
 | 💰 Amount Invested | Total amount invested across the portfolio |
 | 💵 Current Portfolio Value | Current value of the investments |
 | 📈 Portfolio Return | Overall gain/loss relative to total investment |
-| 🏢 Number of Companies | Number of companies included in the portfolio |
+| 🏢 Number of Holdings | Number of companies included in the portfolio |
 | 🏆 Top Performer | Company with the highest percentage return |
 | 💹 Net Profit | Gain/loss associated with the top-performing investment |
 
@@ -123,32 +106,7 @@ The analysis focuses on:
 
 The dashboard uses **DAX (Data Analysis Expressions)** to calculate key portfolio performance indicators.
 
-### 1️⃣ Max Return (%)
-
-```DAX
-Max Return (%) =
-MAX(Sheet1[Gain / Loss (%)])/100
-```
-
-This measure identifies the maximum percentage gain/loss recorded among the companies in the portfolio.
-
----
-
-### 2️⃣ Net Profit
-
-```DAX
-Net Profit =
-MAXX(
-    TOPN(1, Sheet1, Sheet1[Gain / Loss (%)], DESC),
-    Sheet1[Gain / Loss (₹)]
-)
-```
-
-This measure returns the gain/loss in ₹ associated with the company having the highest percentage return.
-
----
-
-### 3️⃣ Portfolio Return
+### 1️⃣ Portfolio Return
 
 ```DAX
 Portfolio Return =
@@ -159,21 +117,89 @@ DIVIDE(
 )
 ```
 
-This measure calculates the overall portfolio return by dividing total gain/loss by the total amount invested.
+Calculates the overall portfolio return by dividing total gain/loss by total amount invested.
 
 ---
 
-### 4️⃣ Top Performer
+### 2️⃣ Top Performer Sector
+
+```DAX
+Top Performer Sector =
+MAXX(
+    TOPN(
+        1,
+        Sheet1,
+        Sheet1[Gain / Loss (%)],
+        DESC
+    ),
+    Sheet1[Sector]
+)
+```
+
+Identifies the sector associated with the top-performing company.
+
+---
+
+### 3️⃣ Top Performer
 
 ```DAX
 Top Performer =
 MAXX(
-    TOPN(1, Sheet1, Sheet1[Gain / Loss (%)], DESC),
+    TOPN(
+        1,
+        Sheet1,
+        Sheet1[Gain / Loss (%)],
+        DESC
+    ),
     Sheet1[Company Name]
 )
 ```
 
-This measure identifies the company with the highest percentage return in the portfolio.
+Identifies the company with the highest percentage return in the portfolio.
+
+---
+
+### 4️⃣ Net Profit
+
+```DAX
+Net Profit =
+MAXX(
+    TOPN(
+        1,
+        Sheet1,
+        Sheet1[Gain / Loss (%)],
+        DESC
+    ),
+    Sheet1[Gain / Loss (₹)]
+)
+```
+
+Returns the gain/loss in ₹ associated with the company having the highest percentage return.
+
+---
+
+### 5️⃣ Max Return (%)
+
+```DAX
+Max Return (%) =
+MAX(Sheet1[Gain / Loss (%)]) / 100
+```
+
+Identifies the maximum percentage return recorded among the companies in the portfolio.
+
+---
+
+### 6️⃣ Company Return (%)
+
+```DAX
+Company Return (%) =
+DIVIDE(
+    MAX(Sheet1[Gain / Loss (%)]),
+    100
+)
+```
+
+Converts company-level gain/loss percentage values into decimal percentage format for visualization.
 
 ---
 
@@ -184,12 +210,12 @@ The dashboard uses interactive Power BI visuals to communicate portfolio perform
 ### Portfolio Analysis
 
 - 📌 KPI Cards
-- 📊 Company-wise Return Charts
-- 💰 Investment Comparison
-- 💵 Current Portfolio Value Comparison
-- 📈 Return Analysis
-- 💹 Profitability Analysis
+- 📊 Company-wise Return Chart
+- 💰 Investment vs. Current Value
+- 📈 Investment vs. Return
+- 🍩 Profit Contribution by Company
 - 🏆 Top Performer Indicator
+- 📈 Portfolio Return Analysis
 
 ### Interactive Analysis
 
@@ -198,6 +224,7 @@ The dashboard supports interactive exploration through portfolio-related filters
 Users can analyze:
 
 - Companies
+- Sectors
 - Investments
 - Returns
 - Current Value
@@ -275,8 +302,7 @@ Financial Performance
 Investment-Portfolio-Performance-Analysis/
 │
 ├── 📁 DASHBOARD IMAGES
-│   ├── PAGE 1.png
-│   └── PAGE 2.png
+│   └── DASH.png
 │
 ├── 📁 DATASET
 │   └── DATASET OF PORTFOLIO.xlsx
@@ -312,15 +338,14 @@ DATASET/
 
 The Excel dataset used for the portfolio analysis.
 
-### 🖼️ Dashboard Images
+### 🖼️ Dashboard Image
 
 ```text
 DASHBOARD IMAGES/
-├── PAGE 1.png
-└── PAGE 2.png
+└── DASH.png
 ```
 
-Screenshots of the Power BI dashboard pages.
+Screenshot of the final single-page Power BI dashboard.
 
 ### 📋 Project Presentation
 
@@ -361,7 +386,7 @@ If Power BI asks for the source file location, update the data source path to th
 
 ### 4. Explore the Dashboard
 
-Navigate through the dashboard pages and interact with the available filters and visualizations.
+Open the dashboard and interact with the available filters and visualizations.
 
 Users can analyze:
 
@@ -369,6 +394,7 @@ Users can analyze:
 - Current portfolio value
 - Portfolio return
 - Company-wise returns
+- Sector-wise performance
 - Profitability
 - Top-performing company
 - Gain/loss
@@ -448,12 +474,6 @@ This project can be useful for:
 
 ---
 
-## 📄 License
-
-This project is distributed under the **MIT License**.
-
----
-
 ## 🤝 Contributing
 
 Suggestions, improvements, and feedback are welcome.
@@ -461,11 +481,31 @@ Suggestions, improvements, and feedback are welcome.
 For questions, feedback, or improvements, feel free to open an issue or start a discussion.
 
 ---
+
+## 📄 License
+
+This project is distributed under the **MIT License**.
+
+---
+
 ## 📬 Get in Touch
 
-- 📧 Email: [singhalsahil22@gmail.com](mailto:singhalsahil22@gmail.com)
-- 💼 LinkedIn: [Sahil Singhal](https://www.linkedin.com/in/sahil-singhal-2b507823b/)
-- 💻 GitHub: [0SAHILl](https://github.com/0SAHILl)
+**Sahil Singhal**
+
+Business Analytics | Data Analytics | Power BI
+
+<p align="left">
+  <a href="https://www.linkedin.com/in/sahil-singhal-2b507823b/">
+    <img src="https://img.shields.io/badge/LinkedIn-Profile-blue?style=for-the-badge&logo=linkedin" alt="LinkedIn">
+  </a>
+  <a href="mailto:SINGHALSAHIL22@GMAIL.COM">
+    <img src="https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail" alt="Email">
+  </a>
+  <a href="https://github.com/0SAHILl">
+    <img src="https://img.shields.io/badge/GitHub-Profile-black?style=for-the-badge&logo=github" alt="GitHub">
+  </a>
+</p>
+
 ---
 
 ## 🏆 Credits
